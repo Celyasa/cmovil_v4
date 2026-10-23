@@ -1,25 +1,25 @@
-import 'package:cmovil_v4/app/data/data_source/remote/api_client.dart';
-import 'package:cmovil_v4/app/data/helpers/api_config.dart';
+import 'package:cmovil_v4/app/core/config/api_config.dart';
+import 'package:cmovil_v4/app/core/network/api_guard.dart';
 import 'package:cmovil_v4/app/domain/models/auth/login_response_model.dart';
+import 'package:dio/dio.dart';
 
-class AuthenticationApi {
-  final ApiClient _apiClient;
-
-  AuthenticationApi(this._apiClient);
-  Future<LoginResponseModel> login({required String usrCodigo}) async {
-    final response = await _apiClient.dio.post<Object?>(
-      ApiConfig.login,
-      data: <String, String>{'usrCodigo': usrCodigo, 'platform': 'APP'},
-    );
-
-    final data = response.data;
-
-    if (data is! Map<String, dynamic>) {
-      throw const FormatException(
-        'La respuesta del servidor tiene un formato inválido.',
+final class AuthenticationApi {
+  AuthenticationApi(this._dio);
+  final Dio _dio;
+  Future<LoginResponseModel> login({required String usrCodigo}) {
+    return guardApiCall(() async {
+      final response = await _dio.post<Map<String, dynamic>>(
+        ApiConfig.login,
+        data: <String, dynamic>{'usrCodigo': usrCodigo, 'platform': 'APP'},
       );
-    }
 
-    return LoginResponseModel.fromJson(data);
+      final data = response.data;
+
+      if (data == null) {
+        throw const FormatException('La API devolvió una respuesta vacía.');
+      }
+
+      return LoginResponseModel.fromJson(data);
+    });
   }
 }

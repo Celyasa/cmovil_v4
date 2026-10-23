@@ -1,4 +1,4 @@
-import 'package:cmovil_v4/app/data/data_source/local/services/secure_storage_service.dart';
+import 'package:cmovil_v4/app/core/storage/secure_storage_service.dart';
 import 'package:cmovil_v4/app/data/data_source/remote/authentication_api.dart';
 import 'package:cmovil_v4/app/domain/models/auth/login_response_model.dart';
 import 'package:cmovil_v4/app/domain/repositories/authentication_repository.dart';
@@ -23,18 +23,13 @@ final class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }
 
   @override
-  Future<String?> getAccessToken() {
-    return _secureStorageService.getAccessToken();
+  Future<bool> hasActiveSession() async {
+    final token = await _secureStorageService.getAccessToken();
+    return token != null && token.trim().isNotEmpty;
   }
 
   @override
   Future<void> logout() {
     return _secureStorageService.deleteAccessToken();
-  }
-
-  @override
-  Future<bool> hasActiveSession() async {
-    final token = await _secureStorageService.getAccessToken();
-    return token != null && token.trim().isNotEmpty;
   }
 }

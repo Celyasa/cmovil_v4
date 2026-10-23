@@ -1,5 +1,3 @@
-import 'package:cmovil_v4/app/domain/models/auth/usuario.dart';
-
 class LoginResponseModel {
   const LoginResponseModel({
     required this.tokenType,
@@ -7,34 +5,43 @@ class LoginResponseModel {
     required this.usuario,
   });
 
+  final String tokenType;
+  final String accessToken;
+  final LoginUserModel usuario;
+
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
     return LoginResponseModel(
       tokenType: json['tokenType'] as String,
       accessToken: json['accessToken'] as String,
-      usuario: Usuario.fromJson(json['usuario'] as Map<String, dynamic>),
+      usuario: LoginUserModel.fromJson(
+        Map<String, dynamic>.from(json['usuario'] as Map),
+      ),
     );
   }
+}
 
-  final String tokenType;
-  final String accessToken;
-  final Usuario usuario;
+class LoginUserModel {
+  const LoginUserModel({
+    required this.usrCodigo,
+    required this.usrNombre,
+    required this.empNombre,
+    required this.licId,
+    required this.licNombre,
+  });
 
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'tokenType': tokenType,
-      'accessToken': accessToken,
-      'usuario': usuario.toJson(),
-    };
+  final String usrCodigo;
+  final String usrNombre;
+  final String empNombre;
+  final String licId;
+  final String licNombre;
+
+  factory LoginUserModel.fromJson(Map<String, dynamic> json) {
+    return LoginUserModel(
+      usrCodigo: json['usrCodigo'] as String,
+      usrNombre: json['usrNombre'] as String,
+      empNombre: json['empNombre'] as String,
+      licId: json['licId'].toString(),
+      licNombre: json['licNombre'] as String,
+    );
   }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is LoginResponseModel &&
-          other.tokenType == tokenType &&
-          other.accessToken == accessToken &&
-          other.usuario == usuario;
-
-  @override
-  int get hashCode => Object.hash(tokenType, accessToken, usuario);
 }

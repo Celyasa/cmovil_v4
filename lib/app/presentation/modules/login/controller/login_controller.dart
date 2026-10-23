@@ -1,42 +1,34 @@
-import 'package:cmovil_v4/app/domain/repositories/authentication_repository.dart';
+import 'package:cmovil_v4/app/presentation/global/auth/auth_controller.dart';
 import 'package:cmovil_v4/app/presentation/modules/login/controller/login_state.dart';
+import 'package:cmovil_v4/app/presentation/utils/error_messages.dart';
 import 'package:flutter_meedu/notifiers.dart';
 
-class LoginController extends StateNotifier<LoginState> {
-  LoginController(this._authenticationRepository) : super(LoginState.initial);
+final class LoginController extends StateNotifier<LoginState> {
+  LoginController(this._auth) : super(LoginState.initial);
 
-  final AuthenticationRepository _authenticationRepository;
+  final AuthController _auth;
 
   void onUsrCodigoChanged(String usrCodigo) {
-    state = state.copyWith(
-      usrCodigo: usrCodigo,
-      clearError: true,
-      clearResponse: true,
-    );
+    state = state.copyWith(usrCodigo: usrCodigo, clearError: true);
   }
 
   Future<void> login() async {
-    if (!state.canSubmit) return;
+    if (!mounted || !state.canSubmit) return;
 
-    state = state.copyWith(
-      loading: true,
-      clearError: true,
-      clearResponse: true,
-    );
+    final String usrCodigo = state.usrCodigo.trim();
+
+    state = state.copyWith(loading: true, clearError: true);
 
     try {
-      final response = await _authenticationRepository.login(
-        usrCodigo: state.usrCodigo.trim(),
-      );
-      if (!mounted) return;
-      state = state.copyWith(loading: false, response: response);
-    } catch (_) {
+      await _auth.login(usrCodigo: usrCodigo);
+    } catch (error) {
       if (!mounted) return;
 
-      state = state.copyWith(
-        loading: false,
-        error: 'No se pudo iniciar sesión. Verifica tu código.',
-      );
+      state = state.copyWith(error: userMessageFor(error));
+    } finally {
+      if (mounted) {
+        state = state.copyWith(loading: false);
+      }
     }
   }
 }
