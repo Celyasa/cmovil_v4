@@ -6,7 +6,7 @@ class SplashController extends StateNotifier<bool> {
   }
 
   Future<void> _init() async {
-    await Future<void>.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 3));
     if (!mounted) return;
     state = true;
   }

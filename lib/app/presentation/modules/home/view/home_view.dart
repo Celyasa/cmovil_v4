@@ -8,14 +8,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: const Text('CMovil V4 - Home')),
       body: Center(
         child: Consumer(
           builder: (_, ref, _) {
             final notifier = ref.watch(homeProvider);
             return Text(
               '${notifier.state}',
-              style: const TextStyle(fontSize: 40),
+              style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             );
           },
         ),

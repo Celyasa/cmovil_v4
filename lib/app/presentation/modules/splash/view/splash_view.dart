@@ -9,27 +9,29 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final ColorScheme colors = theme.colorScheme;
-
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
     return Scaffold(
-      body: SafeArea(
-        child: Center(
+      body: Center(
+        // 1. Center va afuera para un centrado absoluto en pantalla
+        child: SafeArea(
           child: Consumer(
             builder: (context, ref, _) {
+              // 2. Listener limpio de Meedu (monitorea el estado sin re-renders visuales)
               ref.listen(
                 splashProvider,
-                callback: (notifier) {
-                  if (notifier.state) {
+                callback: (controller) {
+                  if (controller.state) {
                     context.go(Routes.home);
                   }
                 },
               );
-
-              ref.watch(splashProvider);
-
+              // 3. Eliminamos el ref.watch innecesario para evitar redibujos del diseño fijo
               return Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Enfoque vertical centrado
+                crossAxisAlignment:
+                    CrossAxisAlignment.center, // Enfoque horizontal centrado
                 children: <Widget>[
                   Image.asset(
                     'assets/images/logo_cmovil.png',

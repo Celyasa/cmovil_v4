@@ -16,14 +16,6 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-<!-- 
-crear plantillas
-dart pub global run meedu_cli:meedu page
-
- -->
-
- <!-- 
+<!--
 dir /S /B lib .gitignore .metadata analysis_options.yaml cmovil_v4.iml pubspec.yaml README.md > arquitectura.txt
-
  -->
-

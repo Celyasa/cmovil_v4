@@ -4,23 +4,26 @@
 // utility that Flutter provides. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
+
 import 'package:cmovil_v4/app/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('App arranca y renderiza SplashView', (
-    WidgetTester tester,
-  ) async {
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    // Verifica que se renderiza un Scaffold (estructura base de SplashView)
-    expect(find.byType(Scaffold), findsWidgets);
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
 
-    // Verifica que aparece el branding de CMovil V4
-    expect(find.text('CMovil V4'), findsOneWidget);
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
 
-    // Verifica que hay un indicador de carga (spinner de Splash)
-    expect(find.byType(CircularProgressIndicator), findsWidgets);
+    // Verify that our counter has incremented.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
   });
 }

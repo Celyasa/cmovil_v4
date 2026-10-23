@@ -1,0 +1,405 @@
+lib/
+├── main.dart                  # Punto de entrada, inicializa dependencias y corre MyApp
+├── app/
+│   ├── my_app.dart            # Configuración de MaterialApp/GoRouter
+│   │
+│   ├── core/                  # Infraestructura transversal
+│   │   ├── config/            # Constantes, env, estilos globales
+│   │   ├── di/                # Providers, FactoryProviders, service locator
+│   │   ├── network/           # Cliente Dio, interceptores, logging
+│   │   ├── database/          # Drift: tablas, DAOs, conexión
+│   │   ├── notifications/     # Firebase Messaging, permisos
+│   │   ├── tracking/          # Analytics, Crashlytics
+│   │   ├── maps/              # Configuración Google Maps
+│   │   └── errors/            # Manejo de excepciones, Failures
+│   │
+│   ├── domain/                # Reglas de negocio
+│   │   ├── models/            # Entidades puras (User, Session, etc.)
+│   │   ├── repositories/      # Contratos abstractos (AuthRepository, etc.)
+│   │   └── usecases/          # Casos de uso (LoginUseCase, CheckSessionUseCase)
+│   │
+│   ├── data/                  # Implementaciones
+│   │   ├── data_source/
+│   │   │   ├── remote/        # APIs con Dio
+│   │   │   └── local/         # Drift, SharedPreferences
+│   │   ├── repositories_impl/ # Implementaciones de repositorios
+│   │   ├── models/            # DTOs y mapeadores
+│   │   └── helpers/           # Utilidades (serialización, interceptores)
+│   │
+│   ├── presentation/          # UI + Estado
+│   │   ├── global/            # Widgets comunes, estilos, temas
+│   │   ├── global/widgets/    # Botones, inputs reutilizables
+│   │   ├── routes/            # Configuración GoRouter (app_routes.dart, routes.dart)
+│   │   └── modules/           # Features
+│   │       ├── splash/
+│   │       │   ├── controller/   # SplashController
+│   │       │   └── view/         # SplashView
+│   │       ├── login/
+│   │       │   ├── controller/   # LoginController, LoginProvider
+│   │       │   └── view/         # LoginView
+│   │       └── home/
+│   │           ├── controller/   # HomeController, HomeProvider
+│   │           ├── utils/        # Validadores, formateadores
+│   │           └── view/         # HomeView + widgets
+
+-----------------------------------------------
+lib/
+├── main.dart                      # Punto de entrada: inicializa dependencias async y arranca MyApp
+├── app/
+│   ├── my_app.dart                # Configura MaterialApp.router o MaterialApp; importa themes desde presentation/global/theme
+│   │
+│   ├── core/                      # Infraestructura transversal y servicios de larga vida
+│   │   ├── config/                # env.dart; constants.dart; feature flags
+│   │   ├── di/                    # dependencies.dart: registro async de servicios (Dio, Drift, Sockets)
+│   │   ├── network/               # Cliente Dio, interceptors, manejo de errores
+│   │   │   ├── dio_client.dart
+│   │   │   ├── interceptors/      # auth_interceptor.dart, logging_interceptor.dart
+│   │   │   └── sockets/           # socket_service.dart: conexión global, streams, reconexión
+│   │   ├── database/              # Drift setup, DAOs, migrations
+│   │   │   ├── drift_database.dart
+│   │   │   ├── daos/
+│   │   │   └── tables/
+│   │   ├── notifications/         # firebase_messaging_service.dart, local_notifications.dart
+│   │   ├── tracking/              # analytics_service.dart, crashlytics_service.dart
+│   │   ├── maps/                  # maps_service.dart, api key management
+│   │   └── errors/                # failures.dart, exceptions mapping
+│   │
+│   ├── domain/                    # Reglas de negocio puras
+│   │   ├── models/                # entidades inmutables: user.dart, session.dart
+│   │   ├── repositories/          # contratos abstractos: auth_repository.dart, message_repository.dart
+│   │   └── usecases/              # opcional: solo para lógica no trivial
+│   │
+│   ├── data/                      # Implementaciones concretas
+│   │   ├── data_source/
+│   │   │   ├── remote/            # auth_api.dart, message_api.dart (Dio)
+│   │   │   └── local/             # auth_local_ds.dart (Drift/SharedPrefs)
+│   │   ├── repositories_impl/     # auth_repository_impl.dart, message_repository_impl.dart
+│   │   ├── models/                # DTOs y mappers entre API/DB y domain models
+│   │   └── helpers/               # serializers, date_parsers, network_helpers
+│   │
+│   └── presentation/              # UI y estado con Meedu
+│       ├── global/
+│       │   ├── widgets/           # widgets reutilizables
+│       │   └── theme/             # themes.dart, app_theme.dart, colors.dart, text_styles.dart
+│       ├── routes/                # app_router.dart (GoRouter), routes.dart
+│       └── modules/
+│           ├── splash/
+│           │   ├── controller/    # splash_controller.dart (decide Login o Home)
+│           │   └── view/          # splash_view.dart
+│           ├── login/
+│           │   ├── controller/    # login_controller.dart, login_provider.dart
+│           │   └── view/          # login_view.dart
+│           └── home/
+│               ├── controller/    # home_controller.dart, home_provider.dart
+│               ├── utils/         # helpers específicos del módulo
+│               └── view/          # home_view.dart y widgets/
+---------------------------------------------------
+lib/
+├── main.dart
+│   # Punto de entrada: inicialización de Flutter y arranque de la aplicación.
+│
+└── app/
+    ├── my_app.dart
+    │   # Configuración raíz: MaterialApp, temas, navegación y configuración global.
+    │
+    ├── core/
+    │   # Infraestructura transversal compartida por toda la aplicación.
+    │
+    │   ├── config/
+    │   │   # Configuración por entorno, variables y parámetros de la aplicación.
+    │   │
+    │   ├── constants/
+    │   │   # Constantes globales: claves, valores fijos y configuraciones comunes.
+    │   │
+    │   ├── di/
+    │   │   # Registro e inicialización de dependencias y servicios compartidos.
+    │   │
+    │   ├── network/
+    │   │   # Configuración del cliente HTTP Dio, conectividad y errores de red.
+    │   │   └── interceptors/
+    │   │       # Interceptores HTTP: tokens, encabezados, logging y renovación de sesión.
+    │   │
+    │   ├── database/
+    │   │   # Configuración de Drift/SQLite, conexión y ciclo de vida de la base local.
+    │   │   ├── tables/
+    │   │   │   # Definición de tablas locales de Drift.
+    │   │   ├── daos/
+    │   │   │   # Consultas, inserciones, actualizaciones y eliminaciones locales.
+    │   │   └── migrations/
+    │   │       # Estrategias para actualizar el esquema sin perder datos.
+    │   │
+    │   ├── storage/
+    │   │   # Acceso a preferencias y almacenamiento seguro de datos sensibles.
+    │   │
+    │   ├── errors/
+    │   │   # Excepciones, errores comunes y conversión a errores comprensibles.
+    │   │
+    │   ├── logging/
+    │   │   # Registro centralizado de eventos, advertencias y errores técnicos.
+    │   │
+    │   ├── sync/
+    │   │   # Coordinación de sincronización entre datos locales y servidor.
+    │   │   ├── sync_manager.dart
+    │   │   ├── sync_status.dart
+    │   │   └── sync_queue.dart
+    │   │
+    │   ├── notifications/
+    │   │   # Configuración de notificaciones locales y push.
+    │   │
+    │   ├── maps/
+    │   │   # Servicios compartidos de mapas, ubicación y geolocalización.
+    │   │
+    │   └── tracking/
+    │       # Analítica, seguimiento de errores y métricas de uso.
+    │
+    ├── domain/
+    │   # Reglas de negocio independientes de Flutter, Dio y Drift.
+    │
+    │   ├── models/
+    │   │   # Entidades y modelos centrales: usuario, sesión, producto, pedido, etc.
+    │   │
+    │   ├── repositories/
+    │   │   # Contratos abstractos que definen cómo se obtienen y guardan los datos.
+    │   │
+    │   └── usecases/
+    │       # Casos de uso: iniciar sesión, crear pedido, sincronizar, etc.
+    │
+    ├── data/
+    │   # Implementaciones concretas para obtener, almacenar y transformar datos.
+    │
+    │   ├── data_source/
+    │   │   # Fuentes desde las que se obtienen los datos.
+    │   │
+    │   │   ├── remote/
+    │   │   │   # Comunicación con APIs mediante Dio.
+    │   │   │
+    │   │   └── local/
+    │   │       # Acceso a Drift/SQLite y almacenamiento local.
+    │   │
+    │   ├── models/
+    │   │   # DTO de entrada y salida de APIs y modelos específicos de persistencia.
+    │   │
+    │   ├── mappers/
+    │   │   # Conversión entre DTO, modelos de persistencia y entidades de dominio.
+    │   │
+    │   ├── repositories_impl/
+    │   │   # Implementaciones de los contratos definidos en domain/repositories.
+    │   │
+    │   └── helpers/
+    │       # Utilidades específicas de la capa de datos: fechas, serialización, etc.
+    │
+    └── presentation/
+        # Interfaz de usuario y gestión del estado con Flutter y Meedu.
+
+        ├── global/
+        │   # Elementos visuales y utilidades compartidos entre módulos.
+        │
+        │   ├── theme/
+        │   │   # Temas Light/Dark, colores, tipografía, estilos y componentes temáticos.
+        │   │   ├── app_theme.dart
+        │   │   ├── app_colors.dart
+        │   │   └── app_text_styles.dart
+        │   │
+        │   ├── widgets/
+        │   │   # Widgets reutilizables: botones, campos, loaders, diálogos y tarjetas.
+        │   │
+        │   └── utils/
+        │       # Utilidades de presentación: formatos visuales y helpers de UI.
+        │
+        ├── routes/
+        │   # Definición centralizada de rutas y configuración de navegación.
+        │   ├── routes.dart
+        │   └── app_routes.dart
+        │
+        └── modules/
+            # Módulos funcionales de la aplicación.
+            # Cada módulo contiene su propia vista, estado y componentes específicos.
+
+            ├── splash/
+            │   # Pantalla inicial y coordinación de la navegación de arranque.
+            │   ├── controller/
+            │   │   └── splash_controller.dart
+            │   └── view/
+            │       └── splash_view.dart
+            │
+            ├── login/
+            │   # Inicio de sesión y validación de credenciales.
+            │   ├── controller/
+            │   │   ├── login_controller.dart
+            │   │   └── login_provider.dart
+            │   └── view/
+            │       ├── login_view.dart
+            │       └── widgets/
+            │           # Componentes exclusivos del Login.
+            │
+            ├── home/
+            │   # Pantalla principal compartida por los distintos roles.
+            │   ├── controller/
+            │   │   ├── home_controller.dart
+            │   │   └── home_provider.dart
+            │   ├── view/
+            │   │   ├── home_view.dart
+            │   │   └── widgets/
+            │   │       # Componentes exclusivos del Home.
+            │   └── utils/
+            │       # Ayudantes específicos del Home, si son necesarios.
+            │
+            ├── clientes/
+            │   # Consulta, creación y actualización de clientes.
+            │   ├── controller/
+            │   └── view/
+            │       └── widgets/
+            │
+            ├── productos/
+            │   # Catálogo, búsqueda, precios y presentaciones de productos.
+            │   ├── controller/
+            │   └── view/
+            │       └── widgets/
+            │
+            ├── pedidos/
+            │   # Creación, edición, consulta y gestión de pedidos.
+            │   ├── controller/
+            │   └── view/
+            │       └── widgets/
+            │
+            ├── preventa/
+            │   # Flujos específicos de preventa, si requieren lógica propia.
+            │   ├── controller/
+            │   └── view/
+            │
+            ├── autoventa/
+            │   # Flujos específicos de autoventa, si requieren lógica propia.
+            │   ├── controller/
+            │   └── view/
+            │
+            ├── supervisor/
+            │   # Funciones exclusivas de supervisión, si corresponden.
+            │   ├── controller/
+            │   └── view/
+            │
+            ├── sincronizacion/
+            │   # Estado de sincronización, pendientes y errores visibles al usuario.
+            │   ├── controller/
+            │   └── view/
+            │
+            └── configuracion/
+                # Preferencias, tema visual y ajustes de la aplicación.
+                ├── controller/
+                └── view/
+
+test/
+# Pruebas automatizadas del proyecto.
+├── app/
+│   ├── domain/
+│   │   # Pruebas unitarias de entidades y casos de uso.
+│   ├── data/
+│   │   # Pruebas de repositorios, mappers y fuentes de datos.
+│   └── presentation/
+│       # Pruebas de widgets, controllers y navegación.
+└── helpers/
+    # Datos de prueba, mocks y utilidades compartidas entre pruebas.
+
+    ------------------------------------------------------------------------------ Mejoras
+    C:\Users\ROG\Downloads\Meedu_CMovil4\cmovil_v4\lib\app\presentation\routes\meedu_refresh_listenable.dart
+    import 'package:flutter/material.dart';
+import 'package:flutter_meedu/notifiers.dart';
+
+final class MeeduRefreshListenable<S> extends ChangeNotifier {
+  MeeduRefreshListenable(this._notifier) {
+    _notifier.addListener(_onChanged);
+  }
+
+  final StateNotifier<S> _notifier;
+
+  void _onChanged(S state) => notifyListeners();
+
+  @override
+  void dispose() {
+    _notifier.removeListener(_onChanged);
+    super.dispose();
+  }
+}
+
+----------------------------------------------------------------errores
+lib/app/data/helpers/dio_error_mapper.dart
+import 'package:cmovil_v4/app/core/error/api_failure.dart';
+import 'package:dio/dio.dart';
+
+extension DioExceptionMapper on DioException {
+  /// Traduce un error de Dio a un [ApiFailure].
+  /// Uso en los data sources:
+  ///   try { ... } on DioException catch (e) { throw e.toFailure(); }
+  ApiFailure toFailure() {
+    final status = response?.statusCode;
+
+    switch (type) {
+      case DioExceptionType.connectionTimeout:
+      case DioExceptionType.sendTimeout:
+      case DioExceptionType.receiveTimeout:
+        return const ApiFailure(
+          type: ApiFailureType.timeout,
+          message: 'El servidor tardó demasiado en responder.',
+        );
+      case DioExceptionType.connectionError:
+        return const ApiFailure(
+          type: ApiFailureType.network,
+          message: 'Sin conexión. Verifica tu red e inténtalo de nuevo.',
+        );
+      case DioExceptionType.cancel:
+        return const ApiFailure(
+          type: ApiFailureType.cancelled,
+          message: 'La solicitud fue cancelada.',
+        );
+      case DioExceptionType.badResponse:
+        return _fromStatus(status);
+      case DioExceptionType.badCertificate:
+      case DioExceptionType.unknown:
+        return const ApiFailure(
+          type: ApiFailureType.unknown,
+          message: 'Ocurrió un error inesperado.',
+        );
+    }
+  }
+
+  ApiFailure _fromStatus(int? status) {
+    final serverMessage = _serverMessage();
+
+    return switch (status) {
+      401 => ApiFailure(
+          type: ApiFailureType.unauthorized,
+          message: serverMessage ?? 'Credenciales o sesión inválidas.',
+          statusCode: status,
+        ),
+      403 => ApiFailure(
+          type: ApiFailureType.forbidden,
+          message: serverMessage ?? 'No tienes permisos para esta acción.',
+          statusCode: status,
+        ),
+      404 => ApiFailure(
+          type: ApiFailureType.notFound,
+          message: serverMessage ?? 'Recurso no encontrado.',
+          statusCode: status,
+        ),
+      final int code when code >= 500 => ApiFailure(
+          type: ApiFailureType.server,
+          message: 'El servidor presentó un problema. Inténtalo más tarde.',
+          statusCode: code,
+        ),
+      _ => ApiFailure(
+          type: ApiFailureType.unknown,
+          message: serverMessage ?? 'No se pudo completar la solicitud.',
+          statusCode: status,
+        ),
+    };
+  }
+
+  /// Extrae `message` del cuerpo si la API lo envía como JSON.
+  String? _serverMessage() {
+    final data = response?.data;
+    if (data is Map<String, dynamic>) {
+      final message = data['message'];
+      if (message is String && message.trim().isNotEmpty) return message;
+    }
+    return null;
+  }
+}

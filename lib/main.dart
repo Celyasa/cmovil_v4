@@ -3,6 +3,7 @@ import 'package:cmovil_v4/app/my_app.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
-  await injectDependencies();
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDependencies();
   runApp(const MyApp());
 }
