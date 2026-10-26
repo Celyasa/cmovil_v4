@@ -23,7 +23,7 @@ lib/
 │   │   │   ├── remote/        # APIs con Dio
 │   │   │   └── local/         # Drift, SharedPreferences
 │   │   ├── repositories_impl/ # Implementaciones de repositorios
-│   │   ├── models/            # DTOs y mapeadores
+│   │   ├── models/            # mapeadores
 │   │   └── helpers/           # Utilidades (serialización, interceptores)
 │   │
 │   ├── presentation/          # UI + Estado
@@ -74,7 +74,7 @@ lib/
 │   │   │   ├── remote/            # auth_api.dart, message_api.dart (Dio)
 │   │   │   └── local/             # auth_local_ds.dart (Drift/SharedPrefs)
 │   │   ├── repositories_impl/     # auth_repository_impl.dart, message_repository_impl.dart
-│   │   ├── models/                # DTOs y mappers entre API/DB y domain models
+│   │   ├── models/                # mappers entre API/DB y domain models
 │   │   └── helpers/               # serializers, date_parsers, network_helpers
 │   │
 │   └── presentation/              # UI y estado con Meedu
@@ -177,10 +177,10 @@ lib/
     │   │       # Acceso a Drift/SQLite y almacenamiento local.
     │   │
     │   ├── models/
-    │   │   # DTO de entrada y salida de APIs y modelos específicos de persistencia.
+    │   │   # entrada y salida de APIs y modelos específicos de persistencia.
     │   │
     │   ├── mappers/
-    │   │   # Conversión entre DTO, modelos de persistencia y entidades de dominio.
+    │   │   # Conversión modelos de persistencia y entidades de dominio.
     │   │
     │   ├── repositories_impl/
     │   │   # Implementaciones de los contratos definidos en domain/repositories.

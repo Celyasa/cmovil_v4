@@ -7,10 +7,13 @@ C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\m
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\config
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\di
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\errors
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\network
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\storage
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\config\api_config.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\di\dependency_init.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\errors\app_exception.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\network\api_guard.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\network\dio_factory.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\storage\secure_storage_service.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\data_source
@@ -28,6 +31,7 @@ C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\d
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\routes
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\utils
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\auth
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\theme
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\widgets
@@ -37,8 +41,11 @@ C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\p
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\theme\app_text_styles.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\theme\app_theme.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\widgets\route_error_view.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\indicadores
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\sincronizacion
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home\controller
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home\view
@@ -53,6 +60,11 @@ C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\p
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\controller\login_state.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\login_view.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_background.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_code_field.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_footer.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_header.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_submit_button.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\controller
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\view
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\controller\splash_controller.dart
@@ -60,6 +72,7 @@ C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\p
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\view\splash_view.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\routes\app_router.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\routes\routes.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\utils\error_messages.dart
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\.gitignore
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\.metadata
 C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\analysis_options.yaml

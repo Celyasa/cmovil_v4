@@ -10,4 +10,13 @@ abstract final class Routes {
   // Home
   static const String home = '/home';
   static const String homeName = 'home';
+
+  static const String indicadores = '/indicadores';
+  static const String indicadoresName = 'indicadores';
+
+  static const String clientes = '/clientes';
+  static const String clientesName = 'clientes';
+
+  static const String sincronizar = '/sincronizar';
+  static const String sincronizarName = 'sincronizar';
 }
