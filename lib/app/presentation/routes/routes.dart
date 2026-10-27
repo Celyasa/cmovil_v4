@@ -7,16 +7,22 @@ abstract final class Routes {
   static const String login = '/login';
   static const String loginName = 'login';
 
-  // Home
+  // ── Shell: cada tab es hermano, no hijo
+  //    (el shell no tiene path; estos son los paths de las tabs)
+
+  // Tab 1
   static const String home = '/home';
   static const String homeName = 'home';
 
+  // Tab 2
   static const String indicadores = '/indicadores';
   static const String indicadoresName = 'indicadores';
 
-  static const String clientes = '/clientes';
-  static const String clientesName = 'clientes';
+  // Tab 3 dinámico — clientes (tu feature actual)
+  static const String clienteLista = '/cliente/cliente-lista';
+  static const String clienteListaName = 'clienteLista';
 
-  static const String sincronizar = '/sincronizar';
-  static const String sincronizarName = 'sincronizar';
+  // Tab 4
+  static const String sync = '/sync';
+  static const String syncName = 'sync';
 }

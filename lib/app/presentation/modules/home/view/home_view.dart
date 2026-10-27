@@ -13,29 +13,7 @@ class HomeView extends StatelessWidget {
         child: Column(
           children: [
             // CONSUMER 1: El Combo Box (Dropdown)
-            Consumer(
-              builder: (_, ref, _) {
-                final notifier = ref.watch(homeProvider);
-                final currentId = notifier.state;
 
-                return DropdownButton<int>(
-                  value: notifier.modulos.containsKey(currentId)
-                      ? currentId
-                      : 1,
-                  items: notifier.modulos.entries.map((modulo) {
-                    return DropdownMenuItem<int>(
-                      value: modulo.key,
-                      child: Text(modulo.value),
-                    );
-                  }).toList(),
-                  onChanged: (int? nuevoId) {
-                    if (nuevoId != null) {
-                      homeProvider.read().setModulo(nuevoId);
-                    }
-                  },
-                );
-              },
-            ),
             const SizedBox(height: 30), // Espacio intermedio
             Consumer(
               builder: (_, ref, _) {
@@ -55,17 +33,6 @@ class HomeView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () => homeProvider.read().increment(),
         child: const Icon(Icons.add),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
-            label: 'Indicadores',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Clientes'),
-          BottomNavigationBarItem(icon: Icon(Icons.sync), label: 'Sync'),
-        ],
       ),
     );
   }
