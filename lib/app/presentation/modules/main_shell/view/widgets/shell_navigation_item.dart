@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-class HomeNavigationItem {
-  const HomeNavigationItem({
+@immutable
+final class ShellNavigationItem {
+  const ShellNavigationItem({
     required this.label,
     required this.icon,
     required this.selectedIcon,

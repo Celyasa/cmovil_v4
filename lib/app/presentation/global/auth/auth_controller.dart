@@ -6,7 +6,6 @@ final class AuthController extends ChangeNotifier {
   AuthController(this._repository);
 
   final AuthenticationRepository _repository;
-  static const String _devPerfil = 'PREVENTA';
   AuthStatus _status = AuthStatus.initializing;
   AuthStatus get status => _status;
 

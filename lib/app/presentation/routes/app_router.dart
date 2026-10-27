@@ -26,11 +26,6 @@ abstract final class AppRouter {
         name: Routes.loginName,
         builder: (context, state) => const LoginView(),
       ),
-      // GoRoute(
-      //   path: Routes.home,
-      //   name: Routes.homeName,
-      //   builder: (context, state) => const HomeView(),
-      // ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return MainShellView(navigationShell: navigationShell);
@@ -72,16 +67,6 @@ abstract final class AppRouter {
               ),
             ],
           ),
-
-          //  StatefulShellBranch(
-          //   routes: [
-          //     GoRoute(
-          //       path: Routes.cartera,
-          //       name: Routes.carteraName,
-          //       builder: (context, state) => const ClienteListaView(),
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     ],

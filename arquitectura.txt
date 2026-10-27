@@ -1,93 +1,102 @@
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\main.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\domain
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\my_app.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\config
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\di
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\errors
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\network
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\storage
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\config\api_config.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\di\dependency_init.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\errors\app_exception.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\network\api_guard.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\network\dio_factory.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\core\storage\secure_storage_service.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\data_source
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\repositories_impl
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\data_source\local
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\data_source\remote
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\data_source\local\database
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\data_source\local\database\database.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\data_source\remote\authentication_api.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\data\repositories_impl\authentication_repository_impl.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\domain\models
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\domain\repositories
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\domain\models\auth
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\domain\models\auth\login_response_model.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\domain\repositories\authentication_repository.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\routes
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\utils
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\auth
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\theme
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\widgets
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\auth\auth_controller.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\auth\auth_status.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\theme\app_colors.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\theme\app_text_styles.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\theme\app_theme.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\global\widgets\route_error_view.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\utils
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\view
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller\cliente_lista_controller.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller\cliente_lista_provider.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller\cliente_lista_state.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\view\cliente_lista_view.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\view\widgets
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home\controller
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home\utils
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home\view
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home\controller\home_controller.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home\controller\home_provider.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home\view\home_view.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\home\view\widgets
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\controller
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\controller\login_controller.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\controller\login_provider.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\controller\login_state.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view\login_view.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view\widgets
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_background.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_code_field.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_footer.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_header.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_submit_button.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash\controller
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash\utils
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash\view
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash\controller\splash_controller.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash\controller\splash_provider.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash\view\splash_view.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\modules\splash\view\widgets
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\routes\app_router.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\routes\routes.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\lib\app\presentation\utils\error_messages.dart
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\.gitignore
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\.metadata
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\analysis_options.yaml
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\cmovil_v4.iml
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\pubspec.yaml
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\README.md
-C:\Users\ROG\Downloads\Meedu_CMovil4\Celyasa\cmovil_v4\android\.gitignore
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\main.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\domain
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\my_app.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\config
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\di
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\errors
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\network
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\storage
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\config\api_config.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\di\dependency_init.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\errors\app_exception.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\network\api_guard.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\network\dio_factory.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\core\storage\secure_storage_service.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\data_source
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\helpers
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\repositories_impl
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\data_source\local
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\data_source\remote
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\data_source\local\database
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\data_source\local\database\database.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\data_source\remote\authentication_api.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\data\repositories_impl\authentication_repository_impl.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\domain\models
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\domain\repositories
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\domain\models\auth
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\domain\models\auth\login_response_model.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\domain\repositories\authentication_repository.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\routes
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\utils
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\auth
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\theme
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\widgets
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\auth\auth_controller.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\auth\auth_status.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\theme\app_colors.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\theme\app_text_styles.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\theme\app_theme.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\global\widgets\route_error_view.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\indicadores
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\sincronizacion
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\view
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller\cliente_lista_controller.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller\cliente_lista_provider.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\controller\cliente_lista_state.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\cliente\cliente_lista\view\cliente_lista_view.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home\controller
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home\view
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home\controller\home_controller.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home\controller\home_provider.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\home\view\home_view.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\controller
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\utils
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\controller\login_controller.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\controller\login_provider.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\controller\login_state.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\login_view.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_background.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_code_field.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_footer.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_header.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\login\view\widgets\login_submit_button.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\config
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\controller
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\view
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\config\shell_navigation_item.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\controller\main_shell_controller.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\controller\main_shell_provider.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\controller\main_shell_state.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\view\main_shell_view.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\view\widgets
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\main_shell\view\widgets\shell_navigation_item.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\controller
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\view
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\controller\splash_controller.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\controller\splash_provider.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\modules\splash\view\splash_view.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\routes\app_router.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\routes\routes.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\lib\app\presentation\utils\error_messages.dart
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\.gitignore
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\.metadata
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\analysis_options.yaml
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\cmovil_v4.iml
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\pubspec.yaml
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\README.md
+C:\Users\analistaprogramador\Downloads\CMovil4 Gold\jarevalo\cmovil_v4\android\.gitignore
