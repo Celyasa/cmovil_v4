@@ -1,4 +1,3 @@
-import 'package:cmovil_v4/app/presentation/global/theme/app_colors.dart';
 import 'package:cmovil_v4/app/presentation/global/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
