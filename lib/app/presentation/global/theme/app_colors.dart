@@ -19,4 +19,14 @@ abstract final class AppColors {
   static const Color darkBorder = Color(0xFF353A46);
   static const Color darkText = Color(0xFFF5F6FA);
   static const Color darkMuted = Color(0xFF9AA1B2);
+
+  // Estados de notificación: modo claro
+  static const Color lightSuccess = Color(0xFF237A45);
+  static const Color lightWarning = Color(0xFF895600);
+  static const Color lightInfo = Color(0xFF2457A7);
+
+  // Estados de notificación: modo oscuro
+  static const Color darkSuccess = Color(0xFF2E9D5B);
+  static const Color darkWarning = Color(0xFFE5AC45);
+  static const Color darkInfo = Color(0xFF6FA8FF);
 }

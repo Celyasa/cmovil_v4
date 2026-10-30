@@ -19,3 +19,8 @@ samples, guidance on mobile development, and a full API reference.
 <!--
 dir /S /B lib .gitignore .metadata analysis_options.yaml cmovil_v4.iml pubspec.yaml README.md > arquitectura.txt
  -->
+<!-- 
+
+Tomar en cuenta sobre POST y GET
+Pones Cloudflare, AWS CloudFront, Fastly, API Gateway, o nginx con proxy_cache delante del backend. Cualquiera de ellos puede cachear GETs.
+ -->

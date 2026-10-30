@@ -1,46 +1,39 @@
-class LoginResponseModel {
-  const LoginResponseModel({
-    required this.tokenType,
-    required this.accessToken,
-    required this.usuario,
-  });
+import 'package:cmovil_v4/app/domain/models/auth/usuario_sesion.dart';
 
-  final String tokenType;
+final class LoginResponseModel {
+  const LoginResponseModel({required this.accessToken, required this.usuario});
+
   final String accessToken;
-  final LoginUserModel usuario;
+  final UsuarioSesionModel usuario;
 
+  // Un tipo incorrecto lanza TypeError; guardApiCall lo convierte en
+  // InvalidResponseException.
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
     return LoginResponseModel(
-      tokenType: json['tokenType'] as String,
       accessToken: json['accessToken'] as String,
-      usuario: LoginUserModel.fromJson(
-        Map<String, dynamic>.from(json['usuario'] as Map),
+      usuario: UsuarioSesionModel.fromJson(
+        json['usuario'] as Map<String, dynamic>,
       ),
     );
   }
 }
 
-class LoginUserModel {
-  const LoginUserModel({
-    required this.usrCodigo,
-    required this.usrNombre,
-    required this.empNombre,
-    required this.licId,
-    required this.licNombre,
+final class UsuarioSesionModel extends UsuarioSesion {
+  const UsuarioSesionModel({
+    required super.usrCodigo,
+    required super.usrNombre,
+    required super.empNombre,
+    required super.licId,
+    required super.licNombre,
   });
 
-  final String usrCodigo;
-  final String usrNombre;
-  final String empNombre;
-  final String licId;
-  final String licNombre;
-
-  factory LoginUserModel.fromJson(Map<String, dynamic> json) {
-    return LoginUserModel(
+  factory UsuarioSesionModel.fromJson(Map<String, dynamic> json) {
+    return UsuarioSesionModel(
       usrCodigo: json['usrCodigo'] as String,
       usrNombre: json['usrNombre'] as String,
       empNombre: json['empNombre'] as String,
-      licId: json['licId'].toString(),
+      // Tolera int o String; `as Object` falla si viene null (evita guardar "null").
+      licId: (json['licId'] as Object).toString(),
       licNombre: json['licNombre'] as String,
     );
   }

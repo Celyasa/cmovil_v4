@@ -3,44 +3,39 @@ class UsuarioPerfil {
     required this.empId,
     required this.empNombre,
     required this.usrNombre,
+    required this.usrCodigo,
     required this.modulos,
   });
 
   final int empId;
   final String empNombre;
   final String usrNombre;
-  final List<Modulo> modulos;
-
-  // En Dart moderno, si un tipo no coincide, Dart lanzará un TypeError automáticamente.
-  // No necesitas validar tipo por tipo con 'is!'.
-  factory UsuarioPerfil.fromJson(Map<String, dynamic> json) {
-    return UsuarioPerfil(
-      empId: json['empId'] as int,
-      empNombre: json['empNombre'] as String,
-      usrNombre: json['usrNombre'] as String,
-      modulos: (json['modulos'] as List)
-          .map((m) => Modulo.fromJson(m as Map<String, dynamic>))
-          .toList(),
-    );
+  final String usrCodigo;
+  final List<UsuarioModulo> modulos;
+  @override
+  String toString() {
+    return 'UsuarioPerfil(empId: $empId, empNombre: $empNombre, usrNombre: $usrNombre, usrCodigo: $usrCodigo, modulos: $modulos)';
   }
 }
 
-class Modulo {
-  const Modulo({
-    required this.usrIdExt,
+class UsuarioModulo {
+  const UsuarioModulo({
+    required this.modId,
     required this.modNombre,
+    required this.usrIdExt,
+    required this.almId,
     required this.almNombre,
+    required this.selected,
   });
 
-  final String usrIdExt;
+  final int modId;
   final String modNombre;
+  final String usrIdExt;
+  final int almId;
   final String almNombre;
-
-  factory Modulo.fromJson(Map<String, dynamic> json) {
-    return Modulo(
-      usrIdExt: json['usrIdExt'] as String,
-      modNombre: json['modNombre'] as String,
-      almNombre: json['almNombre'] as String,
-    );
+  final bool selected;
+  @override
+  String toString() {
+    return 'UsuarioModulo(modId: $modId, modNombre: $modNombre, usrIdExt: $usrIdExt, almId: $almId, almNombre: $almNombre, selected: $selected)';
   }
 }

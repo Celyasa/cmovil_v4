@@ -23,6 +23,6 @@ abstract final class Routes {
   static const String clienteListaName = 'clienteLista';
 
   // Tab 4
-  static const String sync = '/sync';
-  static const String syncName = 'sync';
+  static const String sincronizacion = '/sincronizacion';
+  static const String sincronizacionName = 'sincronizacion';
 }

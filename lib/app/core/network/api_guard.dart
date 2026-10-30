@@ -8,10 +8,16 @@ Future<T> guardApiCall<T>(Future<T> Function() call) async {
     throw mapDioException(error);
   } on FormatException {
     throw const InvalidResponseException();
+  } on TypeError {
+    throw const InvalidResponseException();
   }
 }
 
 AppException mapDioException(DioException error) {
+  // El interceptor ya clasificó el error (p. ej. UnauthorizedException).
+  if (error.error case final AppException appException) {
+    return appException;
+  }
   return switch (error.type) {
     DioExceptionType.connectionTimeout ||
     DioExceptionType.sendTimeout ||
@@ -53,7 +59,7 @@ AppException _mapResponse(Response<Object?>? response) {
     return const UnauthorizedException();
   }
 
-  return HttpException(statusCode: statusCode);
+  return HttpStatusException(statusCode: statusCode);
 }
 
 _ErrorEnvelope? _parseEnvelope(Object? data) {

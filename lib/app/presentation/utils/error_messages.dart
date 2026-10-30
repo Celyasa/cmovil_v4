@@ -10,7 +10,7 @@ String userMessageFor(Object error) {
       'El servidor tardó demasiado en responder. '
           'Inténtalo nuevamente.',
 
-    UnauthorizedException() => 'No fue posible autorizar la solicitud.',
+    UnauthorizedException() => 'Tu sesión expiró. Vuelve a iniciar sesión.',
 
     ApiException(:final message) when message.trim().isNotEmpty => message,
 
@@ -20,13 +20,17 @@ String userMessageFor(Object error) {
       'El servidor no está disponible en este momento. '
           'Inténtalo más tarde.',
 
-    HttpException() => 'No se pudo completar la solicitud.',
+    HttpStatusException(:final statusCode) => switch (statusCode) {
+      400 => 'Solicitud inválida. Verifica los datos.',
+      403 => 'No tienes permiso para esta acción.',
+      404 => 'El recurso solicitado no está disponible.',
+      409 => 'Ya existe un registro con esos datos.',
+      422 => 'Los datos enviados no son válidos.',
+      _ => 'No se pudo completar la solicitud.',
+    },
 
     InvalidResponseException() =>
       'El servidor devolvió una respuesta inesperada.',
-
-    UnexpectedException() =>
-      'Ocurrió un error inesperado. Inténtalo nuevamente.',
 
     _ => 'Ocurrió un error inesperado. Inténtalo nuevamente.',
   };

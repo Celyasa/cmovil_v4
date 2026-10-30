@@ -1,7 +1,8 @@
 import 'package:cmovil_v4/app/core/di/dependency_init.dart';
 import 'package:cmovil_v4/app/presentation/global/auth/auth_controller.dart';
 import 'package:cmovil_v4/app/presentation/global/auth/auth_status.dart';
-import 'package:cmovil_v4/app/presentation/modules/cliente/cliente_lista/view/cliente_lista_view.dart';
+import 'package:cmovil_v4/app/presentation/global/widgets/route_error_view.dart';
+import 'package:cmovil_v4/app/presentation/modules/clientes/cliente_lista/view/cliente_lista_view.dart';
 import 'package:cmovil_v4/app/presentation/modules/home/view/home_view.dart';
 import 'package:cmovil_v4/app/presentation/modules/login/view/login_view.dart';
 import 'package:cmovil_v4/app/presentation/modules/main_shell/view/main_shell_view.dart';
@@ -14,6 +15,8 @@ abstract final class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: Routes.splash,
     refreshListenable: _auth,
+    errorBuilder: (context, state) =>
+        RouteErrorView(location: state.uri.toString()),
     routes: [
       GoRoute(
         path: Routes.splash,
@@ -61,8 +64,8 @@ abstract final class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: Routes.sync,
-                name: Routes.syncName,
+                path: Routes.sincronizacion,
+                name: Routes.sincronizacionName,
                 builder: (context, state) => const ClienteListaView(),
               ),
             ],

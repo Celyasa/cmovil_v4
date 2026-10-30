@@ -5,4 +5,5 @@ import 'package:flutter_meedu/providers.dart';
 
 final loginProvider = Provider.state<LoginController, LoginState>(
   (_) => LoginController(Dependencies.authController),
+  autoDispose: false,
 );

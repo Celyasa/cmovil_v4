@@ -54,3 +54,10 @@ final class InvalidResponseException extends AppException {
 final class UnexpectedException extends AppException {
   const UnexpectedException();
 }
+
+/// Respuesta HTTP no exitosa sin un sobre de error reconocible.
+final class HttpStatusException extends AppException {
+  const HttpStatusException({this.statusCode});
+
+  final int? statusCode;
+}

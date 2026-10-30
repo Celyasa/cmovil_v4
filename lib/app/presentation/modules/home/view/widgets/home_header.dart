@@ -12,14 +12,16 @@ final class HomeHeader extends StatelessWidget {
     required this.moduloSeleccionado,
     this.onModuloChanged,
     this.onRefresh,
+    this.refrescando = false,
   });
 
   final String initials;
   final String userName;
-  final List<Modulo> modulos;
-  final Modulo? moduloSeleccionado;
-  final ValueChanged<Modulo>? onModuloChanged;
+  final List<UsuarioModulo> modulos;
+  final UsuarioModulo? moduloSeleccionado;
+  final ValueChanged<UsuarioModulo>? onModuloChanged;
   final VoidCallback? onRefresh;
+  final bool refrescando;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,6 @@ final class HomeHeader extends StatelessWidget {
       letterSpacing: 0.3,
     );
 
-    // Recupera la instancia del módulo que pertenece al perfil actual.
     final moduloActual = moduloSeleccionado == null
         ? null
         : modulos
@@ -45,10 +46,7 @@ final class HomeHeader extends StatelessWidget {
               )
               .firstOrNull;
 
-    // El almacén siempre corresponde al módulo seleccionado.
     final almacen = moduloActual?.almNombre.trim() ?? '';
-
-    // Cuando solo existe un módulo, se muestra directamente.
     final moduloVisible = tieneUnSoloModulo ? modulos.single : moduloActual;
 
     return Container(
@@ -102,8 +100,8 @@ final class HomeHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: tieneMultiplesModulos && onModuloChanged != null
-                        ? DropdownButton<Modulo>(
-                            underline: const SizedBox(), // Quita la línea inferior por defecto de forma limpia
+                        ? DropdownButton<UsuarioModulo>(
+                            underline: const SizedBox(),
                             value: moduloActual,
                             hint: Text('SELECCIONAR MÓDULO', style: chipStyle),
                             isDense: true,
@@ -118,16 +116,16 @@ final class HomeHeader extends StatelessWidget {
                             dropdownColor: theme.cardColor,
                             borderRadius: BorderRadius.circular(12),
                             style: chipStyle,
-                            onChanged: (Modulo? modulo) {
+                            onChanged: (UsuarioModulo? modulo) {
                               if (modulo != null) {
                                 onModuloChanged?.call(modulo);
                               }
                             },
                             items: modulos.map((modulo) {
-                              return DropdownMenuItem<Modulo>(
+                              return DropdownMenuItem<UsuarioModulo>(
                                 value: modulo,
                                 child: Text(
-                                  modulo.modNombre.toUpperCase(),
+                                  '${modulo.modNombre.toUpperCase()}-${modulo.usrIdExt}',
                                   style: chipStyle,
                                 ),
                               );
@@ -172,13 +170,19 @@ final class HomeHeader extends StatelessWidget {
             IconButton(
               constraints: const BoxConstraints(),
               padding: EdgeInsets.zero,
-              icon: const Icon(
-                Icons.refresh,
-                color: AppColors.brandRed,
-                size: 22,
-              ),
+              icon: refrescando
+                  ? const SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(
+                      Icons.refresh,
+                      color: AppColors.brandRed,
+                      size: 22,
+                    ),
               tooltip: 'Refrescar datos',
-              onPressed: onRefresh,
+              onPressed: refrescando ? null : onRefresh,
             ),
           ],
         ],
