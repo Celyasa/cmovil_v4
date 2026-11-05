@@ -1,7 +1,6 @@
 import 'package:cmovil_v4/app/core/config/api_config.dart';
 import 'package:cmovil_v4/app/core/errors/app_exception.dart';
 import 'package:cmovil_v4/app/core/network/api_guard.dart';
-import 'package:cmovil_v4/app/domain/models/usuario/usuario_perfil.dart';
 import 'package:cmovil_v4/app/domain/models/usuario/usuario_perfil_model.dart';
 import 'package:dio/dio.dart';
 

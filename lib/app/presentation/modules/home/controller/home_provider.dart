@@ -4,6 +4,9 @@ import 'package:cmovil_v4/app/presentation/modules/home/controller/home_state.da
 import 'package:flutter_meedu/providers.dart';
 
 final homeProvider = Provider.state<HomeController, HomeState>(
-  (_) => HomeController(Dependencies.usuarioRepository),
+  (_) => HomeController(
+    Dependencies.usuarioRepository,
+    Dependencies.productoRepository,
+  ),
   autoDispose: false,
 );

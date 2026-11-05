@@ -38,11 +38,14 @@ final class CommercialBanner extends StatelessWidget {
           Image.network(
             _backgroundUrl,
             fit: BoxFit.cover,
+            loadingBuilder: (context, child, progress) {
+              if (progress == null) return child;
+              return const ColoredBox(color: Color(0xFF401A1D));
+            },
             errorBuilder: (_, _, _) {
               return const ColoredBox(color: Color(0xFF401A1D));
             },
           ),
-
           const DecoratedBox(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -87,7 +90,9 @@ final class CommercialBanner extends StatelessWidget {
                         onPressed: onViewPortfolio,
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
-                          minimumSize: Size.zero,
+                          minimumSize: const Size.fromHeight(
+                            44,
+                          ), // ← área táctil igual al PDF
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                         child: const Row(

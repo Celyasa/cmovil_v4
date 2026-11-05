@@ -3,10 +3,13 @@ import 'package:cmovil_v4/app/core/network/dio_factory.dart';
 import 'package:cmovil_v4/app/core/storage/secure_storage_service.dart';
 import 'package:cmovil_v4/app/data/data_source/local/database/database.dart';
 import 'package:cmovil_v4/app/data/data_source/remote/authentication_api.dart';
+import 'package:cmovil_v4/app/data/data_source/remote/producto_api.dart';
 import 'package:cmovil_v4/app/data/data_source/remote/usuario_api.dart';
 import 'package:cmovil_v4/app/data/repositories_impl/authentication_repository_impl.dart';
+import 'package:cmovil_v4/app/data/repositories_impl/producto_repository_impl.dart';
 import 'package:cmovil_v4/app/data/repositories_impl/usuario_repository_impl.dart';
 import 'package:cmovil_v4/app/domain/repositories/authentication_repository.dart';
+import 'package:cmovil_v4/app/domain/repositories/producto_repository.dart';
 import 'package:cmovil_v4/app/domain/repositories/usuario_repository.dart';
 import 'package:cmovil_v4/app/presentation/global/auth/auth_controller.dart';
 import 'package:dio/dio.dart';
@@ -18,6 +21,8 @@ abstract final class Dependencies {
   static late final AuthController authController;
 
   static late final UsuarioRepository usuarioRepository;
+
+  static late final ProductoRepository productoRepository;
 }
 
 Future<void> initializeDependencies() async {
@@ -49,4 +54,10 @@ Future<void> initializeDependencies() async {
     authenticationRepository,
     usuarioRepository,
   );
+  //Producto
+  final ProductoApi productoApi = ProductoApi(dioProtegido);
+  final ProductoRepository productoRepository = ProductoRepositoryImpl(
+    productoApi,
+  );
+  Dependencies.productoRepository = productoRepository;
 }

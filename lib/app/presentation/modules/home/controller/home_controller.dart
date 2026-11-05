@@ -2,18 +2,20 @@ import 'dart:async';
 
 import 'package:cmovil_v4/app/core/errors/app_exception.dart';
 import 'package:cmovil_v4/app/domain/models/usuario/usuario_perfil.dart';
+import 'package:cmovil_v4/app/domain/repositories/producto_repository.dart';
 import 'package:cmovil_v4/app/domain/repositories/usuario_repository.dart';
 import 'package:cmovil_v4/app/presentation/modules/home/controller/home_state.dart';
 import 'package:cmovil_v4/app/presentation/utils/error_messages.dart';
 import 'package:flutter_meedu/notifiers.dart';
 
 final class HomeController extends StateNotifier<HomeState> {
-  HomeController(this._usuarioRepository) : super(const HomeState()) {
+  HomeController(this._usuarioRepository, this._productoRepository)
+    : super(const HomeState()) {
     _escucharPerfil();
   }
 
   final UsuarioRepository _usuarioRepository;
-
+  final ProductoRepository _productoRepository;
   StreamSubscription<UsuarioPerfil?>? _perfilSubscription;
   bool _actualizando = false;
   bool _descargandoPortafolio = false;
@@ -106,16 +108,12 @@ final class HomeController extends StateNotifier<HomeState> {
       limpiarError: true,
       limpiarExito: true,
     );
-
     String? mensajeError;
     String? mensajeExito;
-
     try {
-      //final rutaArchivo = await _portafolioRepository.descargarPdf();
+      final catalogo = await _productoRepository.obtenerCatalogoPdf();
 
-      if (!mounted) return;
-
-      //mensajeExito = 'Portafolio descargado correctamente: $rutaArchivo';
+      mensajeExito = 'Catálogo abierto correctamente.';
     } on AppException catch (error) {
       if (!mounted) return;
 
@@ -123,16 +121,17 @@ final class HomeController extends StateNotifier<HomeState> {
     } catch (_) {
       if (!mounted) return;
 
-      mensajeError = 'No fue posible descargar el portafolio.';
+      mensajeError = 'No fue posible abrir el catálogo.';
     } finally {
       _descargandoPortafolio = false;
+
       if (mounted) {
         state = state.copyWith(
           descargandoPortafolio: false,
           mensajeError: mensajeError,
           mensajeExito: mensajeExito,
           limpiarError: mensajeError == null,
-          //limpiarExito: mensajeExito == null,
+          limpiarExito: mensajeExito == null,
         );
       }
     }
