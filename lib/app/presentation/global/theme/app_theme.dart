@@ -5,30 +5,22 @@ import 'package:flutter/material.dart';
 abstract final class AppTheme {
   static final ThemeData light = _buildTheme(Brightness.light);
   static final ThemeData dark = _buildTheme(Brightness.dark);
-
   static ThemeData _buildTheme(Brightness brightness) {
     final bool isDark = brightness == Brightness.dark;
-
     final Color background = isDark
         ? AppColors.darkBackground
         : AppColors.lightBackground;
-
     final Color surface = isDark
         ? AppColors.darkSurface
         : AppColors.lightSurface;
-
     final Color borderColor = isDark
         ? AppColors.darkBorder
         : AppColors.lightBorder;
-
     final Color textColor = isDark ? AppColors.darkText : AppColors.lightText;
-
     final Color mutedColor = isDark
         ? AppColors.darkMuted
         : AppColors.lightMuted;
-
     final Color accentColor = isDark ? AppColors.brandPink : AppColors.brandRed;
-
     final ColorScheme colorScheme = ColorScheme.fromSeed(
       seedColor: AppColors.brandRed,
       brightness: brightness,
@@ -44,14 +36,11 @@ abstract final class AppTheme {
           ? const Color(0xFF2C313D)
           : const Color(0xFFF0F1F4),
     );
-
     final BorderRadius inputRadius = BorderRadius.circular(12);
-
     final OutlineInputBorder inputBorder = OutlineInputBorder(
       borderRadius: inputRadius,
       borderSide: BorderSide(color: borderColor),
     );
-
     final TextTheme textTheme = ThemeData(brightness: brightness).textTheme
         .copyWith(
           headlineLarge: AppTextStyles.headlineLarge,
@@ -68,7 +57,6 @@ abstract final class AppTheme {
           labelSmall: AppTextStyles.labelSmall,
         )
         .apply(bodyColor: textColor, displayColor: textColor);
-
     return ThemeData(
       useMaterial3: true,
       brightness: brightness,
@@ -76,13 +64,10 @@ abstract final class AppTheme {
       scaffoldBackgroundColor: background,
       canvasColor: surface,
       dividerColor: borderColor,
-
       // Tipografía global.
       textTheme: textTheme,
-
       // Iconos.
       iconTheme: IconThemeData(color: textColor),
-
       // Barra superior.
       appBarTheme: AppBarTheme(
         backgroundColor: background,
@@ -91,7 +76,6 @@ abstract final class AppTheme {
         centerTitle: false,
         titleTextStyle: AppTextStyles.titleLarge.copyWith(color: textColor),
       ),
-
       // Campos de texto.
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -118,7 +102,6 @@ abstract final class AppTheme {
           vertical: 17,
         ),
       ),
-
       // Botones principales.
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -137,7 +120,6 @@ abstract final class AppTheme {
           ),
         ),
       ),
-
       // Botones de texto.
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -145,7 +127,6 @@ abstract final class AppTheme {
           textStyle: AppTextStyles.labelLarge,
         ),
       ),
-
       // Botones con borde.
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -158,10 +139,8 @@ abstract final class AppTheme {
           textStyle: AppTextStyles.labelLarge,
         ),
       ),
-
       // Indicadores de carga.
       progressIndicatorTheme: ProgressIndicatorThemeData(color: accentColor),
-
       // Navegación inferior.
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: surface,
@@ -171,12 +150,10 @@ abstract final class AppTheme {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
           final bool selected = states.contains(WidgetState.selected);
-
           return IconThemeData(color: selected ? accentColor : mutedColor);
         }),
         labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
           final bool selected = states.contains(WidgetState.selected);
-
           return AppTextStyles.labelMedium.copyWith(
             color: selected ? accentColor : mutedColor,
             fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
