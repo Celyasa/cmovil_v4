@@ -29,21 +29,17 @@ Future<void> initializeDependencies() async {
   final SecureStorageService secureStorageService = SecureStorageService(
     const FlutterSecureStorage(),
   );
-  final Dio dioPublico = DioFactory.create();
   // 2. Las dependencias internas ahora son variables locales (mueren al terminar la función)
-  final Dio dioProtegido = DioFactory.create(
+  final Dio dio = DioFactory.create(
     interceptors: [AuthInterceptor(secureStorageService)],
   );
   final AppDatabase database = AppDatabase();
 
-  final AuthenticationApi authenticationApi = AuthenticationApi(
-    dioPublico,
-    dioProtegido,
-  );
+  final AuthenticationApi authenticationApi = AuthenticationApi(dio);
   final AuthenticationRepository authenticationRepository =
       AuthenticationRepositoryImpl(authenticationApi, secureStorageService);
 
-  final UsuarioApi usuarioApi = UsuarioApi(dioProtegido);
+  final UsuarioApi usuarioApi = UsuarioApi(dio);
   // 3. Se asigna el controlador a la propiedad estática global
   final UsuarioRepository usuarioRepository = UsuarioRepositoryImpl(
     usuarioApi,
@@ -55,7 +51,7 @@ Future<void> initializeDependencies() async {
     usuarioRepository,
   );
   //Producto
-  final ProductoApi productoApi = ProductoApi(dioProtegido);
+  final ProductoApi productoApi = ProductoApi(dio);
   final ProductoRepository productoRepository = ProductoRepositoryImpl(
     productoApi,
   );
