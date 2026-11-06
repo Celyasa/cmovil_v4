@@ -20,6 +20,8 @@ class LoginHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 56),
+
+        // Eyebrow de marca · color accent, tracking amplio.
         Text(
           'LOGIN',
           style: theme.textTheme.labelLarge?.copyWith(
@@ -29,23 +31,18 @@ class LoginHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(
-          'Bienvenido',
-          style: theme.textTheme.displaySmall?.copyWith(
-            fontSize: 40,
-            fontWeight: FontWeight.w800,
-            height: 1.1,
-          ),
-        ),
+
+        // Título principal · rol displayMedium (40 / w800 / h1.1).
+        Text('Bienvenido', style: theme.textTheme.displayMedium),
         const SizedBox(height: 12),
+
+        // Descripción · rol bodyLarge + muted.
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 280),
           child: Text(
             'Ingresa el código de usuario para continuar.',
-            style: theme.textTheme.titleMedium?.copyWith(
+            style: theme.textTheme.bodyLarge?.copyWith(
               color: colors.onSurfaceVariant,
-              fontWeight: FontWeight.w400,
-              height: 1.4,
             ),
           ),
         ),

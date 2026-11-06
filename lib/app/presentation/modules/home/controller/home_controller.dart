@@ -17,6 +17,7 @@ final class HomeController extends StateNotifier<HomeState> {
   final UsuarioRepository _usuarioRepository;
   final ProductoRepository _productoRepository;
   StreamSubscription<UsuarioPerfil?>? _perfilSubscription;
+
   bool _actualizando = false;
   bool _descargandoPortafolio = false;
   void _escucharPerfil() {

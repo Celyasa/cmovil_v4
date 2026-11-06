@@ -4,7 +4,6 @@ abstract final class AppColors {
   // Marca CMovil
   static const Color brandRed = Color(0xFFC92A3A);
   static const Color brandPink = Color(0xFFE87A82);
-  static const Color brandCoral = Color(0xFFF2535F);
 
   // Tema claro
   static const Color lightBackground = Color(0xFFFAFAFA);

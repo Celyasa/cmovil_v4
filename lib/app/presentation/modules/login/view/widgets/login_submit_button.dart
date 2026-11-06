@@ -14,13 +14,18 @@ class LoginSubmitButton extends StatelessWidget {
 
   static const double _side = 66;
   static const double _box = 96;
-  static const double _angle = 0.7853981633974483;
+  static const double _angle = 0.7853981633974483; // π/4
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final ColorScheme colors = theme.colorScheme;
     final bool canPress = enabled && !loading;
+
+    final Color fill = (canPress || loading)
+        ? colors.primary
+        : colors.primary.withValues(alpha: 0.45);
+    final Color onFill = colors.onPrimary;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -30,7 +35,7 @@ class LoginSubmitButton extends StatelessWidget {
           style: theme.textTheme.labelLarge?.copyWith(
             fontWeight: FontWeight.w800,
             letterSpacing: 0.4,
-            color: colors.onSurface.withValues(alpha: 0.75),
+            color: colors.onSurfaceVariant,
           ),
         ),
         const SizedBox(width: 6),
@@ -47,9 +52,7 @@ class LoginSubmitButton extends StatelessWidget {
                 Transform.rotate(
                   angle: _angle,
                   child: Material(
-                    color: canPress || loading
-                        ? colors.primary
-                        : colors.primary.withValues(alpha: 0.45),
+                    color: fill,
                     borderRadius: BorderRadius.circular(22),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(22),
@@ -60,17 +63,17 @@ class LoginSubmitButton extends StatelessWidget {
                 ),
                 IgnorePointer(
                   child: loading
-                      ? const SizedBox(
+                      ? SizedBox(
                           width: 24,
                           height: 24,
                           child: CircularProgressIndicator(
                             strokeWidth: 2.5,
-                            color: Colors.white,
+                            color: onFill,
                           ),
                         )
-                      : const Icon(
+                      : Icon(
                           Icons.arrow_forward_rounded,
-                          color: Colors.white,
+                          color: onFill,
                           size: 28,
                         ),
                 ),

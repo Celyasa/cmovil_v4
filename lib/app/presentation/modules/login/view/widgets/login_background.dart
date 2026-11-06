@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 
-import 'package:cmovil_v4/app/presentation/global/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginBackground extends StatelessWidget {
@@ -10,55 +9,62 @@ class LoginBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final bool isDark = theme.brightness == Brightness.dark;
-    final Color soft = theme.colorScheme.onSurface.withValues(
-      alpha: isDark ? 0.06 : 0.04,
-    );
-    final Color accent = isDark
-        ? AppColors.brandCoral
-        : theme.colorScheme.primary;
+    final ColorScheme colors = theme.colorScheme;
 
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final double w = constraints.maxWidth;
-        final double h = constraints.maxHeight;
+    final Color soft = colors.onSurface.withValues(alpha: isDark ? 0.06 : 0.04);
+    final Color accent = colors.primary;
+    final Color accentDeep = Color.lerp(
+      accent,
+      isDark ? Colors.black : Colors.white,
+      isDark ? 0.15 : 0.20,
+    )!;
 
-        return Stack(
-          children: <Widget>[
-            _RoundedShape(
-              center: Offset(w, h * 0.43),
-              side: w * 0.22,
-              lengthFactor: 5,
-              angle: math.pi / 4,
-              color: soft,
-            ),
+    return ExcludeSemantics(
+      child: ClipRect(
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            final double w = constraints.maxWidth;
+            final double h = constraints.maxHeight;
 
-            _RoundedShape(
-              center: Offset(w * 0.17, h * 0.80),
-              side: w * 0.22,
-              lengthFactor: 1.5,
-              angle: math.pi / 4,
-              color: soft,
-            ),
-            _RoundedShape(
-              center: Offset(w * 0.95, h * 0.84),
-              side: w * 0.22,
-              lengthFactor: 1.5,
-              angle: math.pi / 4,
-              color: soft,
-            ),
-            _RoundedShape(
-              center: Offset(-w * 0.08, h * 0.975),
-              side: w * 0.55,
-              angle: math.pi / 4,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: <Color>[accent, accent.withValues(alpha: 0.85)],
-              ),
-            ),
-          ],
-        );
-      },
+            return Stack(
+              clipBehavior: Clip.hardEdge,
+              children: <Widget>[
+                _RoundedShape(
+                  center: Offset(w, h * 0.43),
+                  side: w * 0.22,
+                  lengthFactor: 5,
+                  angle: math.pi / 4,
+                  color: soft,
+                ),
+                _RoundedShape(
+                  center: Offset(w * 0.17, h * 0.80),
+                  side: w * 0.22,
+                  lengthFactor: 1.5,
+                  angle: math.pi / 4,
+                  color: soft,
+                ),
+                _RoundedShape(
+                  center: Offset(w * 0.95, h * 0.84),
+                  side: w * 0.22,
+                  lengthFactor: 1.5,
+                  angle: math.pi / 4,
+                  color: soft,
+                ),
+                _RoundedShape(
+                  center: Offset(-w * 0.08, h * 0.975),
+                  side: w * 0.55,
+                  angle: math.pi / 4,
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[accent, accentDeep],
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }
@@ -71,7 +77,10 @@ class _RoundedShape extends StatelessWidget {
     this.lengthFactor = 1.0,
     this.color,
     this.gradient,
-  });
+  }) : assert(
+         (color == null) != (gradient == null),
+         'Usa color O gradient, no ambos ni ninguno.',
+       );
 
   final Offset center;
   final double side;

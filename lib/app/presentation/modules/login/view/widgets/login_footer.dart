@@ -6,6 +6,7 @@ class LoginFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final ColorScheme colors = theme.colorScheme;
 
     return SizedBox(
       width: double.infinity,
@@ -14,16 +15,17 @@ class LoginFooter extends StatelessWidget {
         children: <Widget>[
           Text(
             'CMOVIL',
-            style: theme.textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.w900,
+            style: theme.textTheme.labelSmall?.copyWith(
+              fontWeight: FontWeight.w800,
               letterSpacing: 2.4,
+              color: colors.onSurface,
             ),
           ),
           const SizedBox(height: 2),
           Text(
             'Tu Herramienta inteligente',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
+              color: colors.onSurfaceVariant,
             ),
           ),
         ],

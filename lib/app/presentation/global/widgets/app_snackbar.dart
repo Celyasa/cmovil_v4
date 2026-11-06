@@ -1,155 +1,181 @@
 import 'package:cmovil_v4/app/presentation/global/theme/app_colors.dart';
-import 'package:cmovil_v4/app/presentation/global/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 abstract final class AppSnackBar {
   static const Duration _defaultDuration = Duration(seconds: 4);
 
-  static Color _semanticColor(
-    BuildContext context, {
-    required Color light,
-    required Color dark,
-  }) {
-    return Theme.of(context).brightness == Brightness.dark ? dark : light;
-  }
+  // ── API pública ────────────────────────────────────────────
 
-  /// Notificación de operación exitosa.
   static void success(
     BuildContext context,
     String message, {
     Duration duration = _defaultDuration,
     String? actionLabel,
     VoidCallback? onAction,
-  }) {
-    _show(
-      context,
-      message: message,
-      backgroundColor: _semanticColor(
-        context,
-        light: AppColors.lightSuccess,
-        dark: AppColors.darkSuccess,
-      ),
-      icon: Icons.check_circle_outline_rounded,
-      duration: duration,
-      actionLabel: actionLabel,
-      onAction: onAction,
-    );
-  }
+  }) => _show(
+    context,
+    variant: _Variant.success,
+    message: message,
+    duration: duration,
+    actionLabel: actionLabel,
+    onAction: onAction,
+  );
 
-  /// Notificación de error.
   static void error(
     BuildContext context,
     String message, {
     Duration duration = _defaultDuration,
     String? actionLabel,
     VoidCallback? onAction,
-  }) {
-    _show(
-      context,
-      message: message,
-      backgroundColor: Theme.of(context).colorScheme.error,
-      icon: Icons.error_outline_rounded,
-      duration: duration,
-      actionLabel: actionLabel,
-      onAction: onAction,
-    );
-  }
+  }) => _show(
+    context,
+    variant: _Variant.error,
+    message: message,
+    duration: duration,
+    actionLabel: actionLabel,
+    onAction: onAction,
+  );
 
-  /// Notificación de advertencia.
   static void warning(
     BuildContext context,
     String message, {
     Duration duration = _defaultDuration,
     String? actionLabel,
     VoidCallback? onAction,
-  }) {
-    _show(
-      context,
-      message: message,
-      backgroundColor: _semanticColor(
-        context,
-        light: AppColors.lightWarning,
-        dark: AppColors.darkWarning,
-      ),
-      icon: Icons.warning_amber_rounded,
-      duration: duration,
-      actionLabel: actionLabel,
-      onAction: onAction,
-    );
-  }
+  }) => _show(
+    context,
+    variant: _Variant.warning,
+    message: message,
+    duration: duration,
+    actionLabel: actionLabel,
+    onAction: onAction,
+  );
 
-  /// Notificación informativa.
   static void info(
     BuildContext context,
     String message, {
     Duration duration = _defaultDuration,
     String? actionLabel,
     VoidCallback? onAction,
-  }) {
-    _show(
-      context,
-      message: message,
-      backgroundColor: _semanticColor(
-        context,
-        light: AppColors.lightInfo,
-        dark: AppColors.darkInfo,
-      ),
-      icon: Icons.info_outline_rounded,
-      duration: duration,
-      actionLabel: actionLabel,
-      onAction: onAction,
-    );
-  }
+  }) => _show(
+    context,
+    variant: _Variant.info,
+    message: message,
+    duration: duration,
+    actionLabel: actionLabel,
+    onAction: onAction,
+  );
+
+  /// Neutro — para confirmaciones banales ("Copiado", "Guardado").
+  /// Usa `surfaceContainerHighest` + `onSurface` del tema → se ve bien
+  /// en light y dark sin tocar `AppColors`.
+  static void neutral(
+    BuildContext context,
+    String message, {
+    Duration duration = _defaultDuration,
+    String? actionLabel,
+    VoidCallback? onAction,
+  }) => _show(
+    context,
+    variant: _Variant.neutral,
+    message: message,
+    duration: duration,
+    actionLabel: actionLabel,
+    onAction: onAction,
+  );
+
+  // ── Internos ───────────────────────────────────────────────
 
   static void _show(
     BuildContext context, {
+    required _Variant variant,
     required String message,
-    required Color backgroundColor,
-    required IconData icon,
     required Duration duration,
     String? actionLabel,
     VoidCallback? onAction,
   }) {
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final isDark = theme.brightness == Brightness.dark;
     final messenger = ScaffoldMessenger.of(context);
+
+    final (Color bg, Color fg) = _resolve(variant, scheme, isDark);
 
     messenger
       ..hideCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
           content: Row(
-            children: [
-              Icon(icon, color: Colors.white, size: 24),
+            children: <Widget>[
+              Icon(_iconOf(variant), color: fg, size: 24),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   message,
-                  style: AppTextStyles.bodyMedium.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: theme.textTheme.labelLarge?.copyWith(color: fg),
                 ),
               ),
             ],
           ),
-          backgroundColor: backgroundColor,
+          backgroundColor: bg,
           duration: duration,
           behavior: SnackBarBehavior.floating,
           elevation: 4,
           showCloseIcon: true,
-          closeIconColor: Colors.white70,
+          closeIconColor: fg.withValues(alpha: 0.75),
           margin: const EdgeInsets.fromLTRB(16, 8, 16, 16),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
-          action: actionLabel != null && onAction != null
+          action: (actionLabel != null && onAction != null)
               ? SnackBarAction(
                   label: actionLabel,
                   onPressed: onAction,
-                  textColor: Colors.white,
+                  textColor: fg,
                 )
               : null,
         ),
       );
   }
+
+  /// Resuelve `(background, foreground)` por variante y por modo.
+  /// **Único sitio** con `AppColors` para estados.
+  static (Color, Color) _resolve(
+    _Variant variant,
+    ColorScheme scheme,
+    bool isDark,
+  ) {
+    switch (variant) {
+      case _Variant.success:
+        return (
+          isDark ? AppColors.darkSuccess : AppColors.lightSuccess,
+          isDark ? Colors.black : Colors.white,
+        );
+      case _Variant.warning:
+        return (
+          isDark ? AppColors.darkWarning : AppColors.lightWarning,
+          isDark ? Colors.black : Colors.white,
+        );
+      case _Variant.info:
+        return (
+          isDark ? AppColors.darkInfo : AppColors.lightInfo,
+          isDark ? Colors.black : Colors.white,
+        );
+      case _Variant.error:
+        return (scheme.error, scheme.onError);
+      case _Variant.neutral:
+        return (scheme.surfaceContainerHighest, scheme.onSurface);
+    }
+  }
+
+  static IconData _iconOf(_Variant v) => switch (v) {
+    _Variant.success => Icons.check_circle_outline_rounded,
+    _Variant.error => Icons.error_outline_rounded,
+    _Variant.warning => Icons.warning_amber_rounded,
+    _Variant.info => Icons.info_outline_rounded,
+    _Variant.neutral => Icons.check_rounded,
+  };
 }
+
+enum _Variant { success, error, warning, info, neutral }
