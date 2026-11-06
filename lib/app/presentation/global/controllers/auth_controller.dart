@@ -1,6 +1,6 @@
+import 'package:cmovil_v4/app/domain/models/auth/auth_status.dart';
 import 'package:cmovil_v4/app/domain/repositories/authentication_repository.dart';
 import 'package:cmovil_v4/app/domain/repositories/usuario_repository.dart';
-import 'package:cmovil_v4/app/presentation/global/auth/auth_status.dart';
 import 'package:flutter/foundation.dart';
 
 final class AuthController extends ChangeNotifier {

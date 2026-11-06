@@ -28,4 +28,8 @@ abstract final class AppColors {
   static const Color darkSuccess = Color(0xFF2E9D5B);
   static const Color darkWarning = Color(0xFFE5AC45);
   static const Color darkInfo = Color(0xFF6FA8FF);
+
+  // Estados de notificación: neutral
+  static const Color lightSnackNeutral = Color(0xFFF0F1F4);
+  static const Color darkSnackNeutral = Color(0xFF2C313D);
 }

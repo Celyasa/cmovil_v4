@@ -1,22 +1,30 @@
 import 'dart:async';
 
 import 'package:cmovil_v4/app/core/errors/app_exception.dart';
+import 'package:cmovil_v4/app/core/storage/tipo_archivo.dart';
 import 'package:cmovil_v4/app/domain/models/usuario/usuario_perfil.dart';
 import 'package:cmovil_v4/app/domain/repositories/producto_repository.dart';
 import 'package:cmovil_v4/app/domain/repositories/usuario_repository.dart';
+import 'package:cmovil_v4/app/presentation/global/controllers/app_download_controller.dart';
 import 'package:cmovil_v4/app/presentation/modules/home/controller/home_state.dart';
 import 'package:cmovil_v4/app/presentation/utils/error_messages.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_meedu/notifiers.dart';
+import 'package:open_filex/open_filex.dart';
 
 final class HomeController extends StateNotifier<HomeState> {
-  HomeController(this._usuarioRepository, this._productoRepository)
-    : super(const HomeState()) {
+  HomeController(
+    this._usuarioRepository,
+    this._productoRepository,
+    this._downloadController,
+  ) : super(const HomeState()) {
     _escucharPerfil();
   }
 
   final UsuarioRepository _usuarioRepository;
   final ProductoRepository _productoRepository;
   StreamSubscription<UsuarioPerfil?>? _perfilSubscription;
+  final AppDownloadController _downloadController;
 
   bool _actualizando = false;
   bool _descargandoPortafolio = false;
@@ -101,7 +109,7 @@ final class HomeController extends StateNotifier<HomeState> {
     }
   }
 
-  Future<void> descargarPortafolioPdf() async {
+  Future<void> descargarPortafolioPdf(BuildContext context) async {
     if (!mounted || _descargandoPortafolio) return;
     _descargandoPortafolio = true;
     state = state.copyWith(
@@ -113,8 +121,21 @@ final class HomeController extends StateNotifier<HomeState> {
     String? mensajeExito;
     try {
       final catalogo = await _productoRepository.obtenerCatalogoPdf();
-
-      mensajeExito = 'Catálogo abierto correctamente.';
+      final archivo = await _downloadController.descargar(
+        context,
+        url: catalogo.urlDescarga,
+        nombre: catalogo.nombre,
+        tamanoBytes: catalogo.tamanoBytes,
+        tipo: TipoArchivo.catalogo,
+      );
+      final abierto = await OpenFilex.open(archivo.path, type: catalogo.tipo);
+      if (abierto.type != ResultType.done) {
+        mensajeError = abierto.message.isEmpty
+            ? 'No se pudo abrir el PDF.'
+            : abierto.message;
+      } else {
+        mensajeExito = 'Catálogo abierto correctamente.';
+      }
     } on AppException catch (error) {
       if (!mounted) return;
 

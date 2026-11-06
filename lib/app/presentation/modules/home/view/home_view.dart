@@ -26,6 +26,7 @@ final class HomeView extends StatelessWidget {
             }
             if (exito != null) {
               controller.limpiarExito();
+
               AppSnackBar.success(context, exito);
             }
           },
@@ -65,7 +66,8 @@ final class HomeView extends StatelessWidget {
                 CommercialBanner(
                   isDownloading: state.descargandoPortafolio,
                   onViewPortfolio: () {},
-                  onDownloadPdf: controller.descargarPortafolioPdf,
+                  onDownloadPdf: () =>
+                      controller.descargarPortafolioPdf(context),
                 ),
                 const SizedBox(height: 24),
               ],

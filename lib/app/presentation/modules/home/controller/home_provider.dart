@@ -7,6 +7,7 @@ final homeProvider = Provider.state<HomeController, HomeState>(
   (_) => HomeController(
     Dependencies.usuarioRepository,
     Dependencies.productoRepository,
+    Dependencies.downloadController,
   ),
   autoDispose: false,
 );

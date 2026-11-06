@@ -1,4 +1,4 @@
-import 'package:cmovil_v4/app/presentation/global/auth/auth_controller.dart';
+import 'package:cmovil_v4/app/presentation/global/controllers/auth_controller.dart';
 import 'package:flutter_meedu/notifiers.dart';
 
 class SplashController extends StateNotifier<void> {

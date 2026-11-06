@@ -38,6 +38,7 @@ final class CommercialBanner extends StatelessWidget {
           Image.network(
             _backgroundUrl,
             fit: BoxFit.cover,
+            //cacheWidth: 1000,
             loadingBuilder: (context, child, progress) {
               if (progress == null) return child;
               return const ColoredBox(color: Color(0xFF401A1D));

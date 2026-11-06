@@ -23,6 +23,26 @@ final class ArchivoStorage {
     return File('${(await _carpeta(tipo)).path}/$nombre');
   }
 
+  /// Devuelve el archivo si ya existe y no está vacío.
+  /// Devuelve el archivo si existe y coincide con el tamaño esperado.
+  /// Devuelve el archivo si existe y coincide con el tamaño esperado.
+  Future<File?> existente(
+    TipoArchivo tipo, {
+    required String nombre,
+    required int tamanoBytes,
+  }) async {
+    if (tamanoBytes <= 0) {
+      throw const InvalidResponseException();
+    }
+    final archivo = await _destino(tipo, nombre);
+    if (!await _coincide(archivo, tamanoBytes)) {
+      return null;
+    }
+    // La vida cuenta desde el último uso.
+    await archivo.setLastModified(DateTime.now());
+    return archivo;
+  }
+
   /// Devuelve el archivo local. Si ya existe con el mismo nombre y tamaño no
   /// vuelve a descargar. [descargar] escribe en la ruta temporal que recibe.
   /// El destino solo se toca cuando la descarga está completa y validada.

@@ -1,5 +1,7 @@
 import 'package:cmovil_v4/app/core/network/auth_interceptor.dart';
 import 'package:cmovil_v4/app/core/network/dio_factory.dart';
+import 'package:cmovil_v4/app/core/network/download_service.dart';
+import 'package:cmovil_v4/app/core/storage/archivo_storage.dart';
 import 'package:cmovil_v4/app/core/storage/secure_storage_service.dart';
 import 'package:cmovil_v4/app/data/data_source/local/database/database.dart';
 import 'package:cmovil_v4/app/data/data_source/remote/authentication_api.dart';
@@ -11,7 +13,8 @@ import 'package:cmovil_v4/app/data/repositories_impl/usuario_repository_impl.dar
 import 'package:cmovil_v4/app/domain/repositories/authentication_repository.dart';
 import 'package:cmovil_v4/app/domain/repositories/producto_repository.dart';
 import 'package:cmovil_v4/app/domain/repositories/usuario_repository.dart';
-import 'package:cmovil_v4/app/presentation/global/auth/auth_controller.dart';
+import 'package:cmovil_v4/app/presentation/global/controllers/app_download_controller.dart';
+import 'package:cmovil_v4/app/presentation/global/controllers/auth_controller.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -19,6 +22,7 @@ abstract final class Dependencies {
   Dependencies._();
   // 1. Dejamos SOLAMENTE el authController como estado global accesible
   static late final AuthController authController;
+  static late final AppDownloadController downloadController;
 
   static late final UsuarioRepository usuarioRepository;
 
@@ -56,4 +60,11 @@ Future<void> initializeDependencies() async {
     productoApi,
   );
   Dependencies.productoRepository = productoRepository;
+
+  final archivoStorage = ArchivoStorage();
+  final downloadService = DownloadService(dio);
+  Dependencies.downloadController = AppDownloadController(
+    downloadService,
+    archivoStorage,
+  );
 }
